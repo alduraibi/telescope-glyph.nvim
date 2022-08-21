@@ -32,7 +32,7 @@ telescope.setup {
     emoji = {
       action = function(emoji)
         -- argument glyph is a table.
-        -- {name="", value="", category=""}
+        -- {name="", value="", category="", description=""}
 
         vim.fn.setreg("*", glyph.value)
         print([[Press p or "*p to paste this glyph]] .. glyph.value)

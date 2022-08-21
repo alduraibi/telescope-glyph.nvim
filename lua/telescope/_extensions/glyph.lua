@@ -25,7 +25,7 @@ local function search(opts)
     return displayer({
       entry.value .. " " .. entry.name,
       entry.category,
-      -- entry.description,
+      entry.description,
     })
   end
 
@@ -36,14 +36,13 @@ local function search(opts)
       results = glyphs,
       entry_maker = function(glyph)
         return {
-          ordinal = glyph.name .. glyph.category,
-          -- ordinal = glyph.name .. glyph.category .. glyph.description,
+          ordinal = glyph.name .. glyph.category .. glyph.description,
           display = make_display,
 
           name = glyph.name,
           value = glyph.value,
           category = glyph.category,
-          -- description = glyph.description,
+          description = glyph.description,
         }
       end,
     }),
