@@ -22863,4 +22863,4 @@ local glyphs = {
   },
 }
 
-return { emojis = emojis }
+return { glyphs = glyphs }
