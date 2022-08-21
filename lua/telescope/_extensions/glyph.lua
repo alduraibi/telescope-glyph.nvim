@@ -5,11 +5,11 @@ local conf = require("telescope.config").values
 local entry_display = require("telescope.pickers.entry_display")
 local action_state = require("telescope.actions.state")
 
-local emojis = require("telescope-emoji").emojis
+local glyphs = require("telescope-glyph").glyphs
 
-local function action(emoji)
-  vim.fn.setreg("*", emoji.value)
-  print([[Press p or "*p to paste this emoji]] .. emoji.value)
+local function action(glyph)
+  vim.fn.setreg("*", glyph.value)
+  print([[Press p or "*p to paste this glyph]] .. glyph.value)
 end
 
 local function search(opts)
@@ -25,32 +25,33 @@ local function search(opts)
     return displayer({
       entry.value .. " " .. entry.name,
       entry.category,
-      entry.description,
+      -- entry.description,
     })
   end
 
   pickers.new(opts, {
-    prompt_title = "Emojis",
+    prompt_title = "Glyphs",
     sorter = conf.generic_sorter(opts),
     finder = finders.new_table({
-      results = emojis,
-      entry_maker = function(emoji)
+      results = glyphs,
+      entry_maker = function(glyph)
         return {
-          ordinal = emoji.name .. emoji.category .. emoji.description,
+          ordinal = glyph.name .. glyph.category,
+          -- ordinal = glyph.name .. glyph.category .. glyph.description,
           display = make_display,
 
-          name = emoji.name,
-          value = emoji.value,
-          category = emoji.category,
-          description = emoji.description,
+          name = glyph.name,
+          value = glyph.value,
+          category = glyph.category,
+          -- description = glyph.description,
         }
       end,
     }),
     attach_mappings = function(prompt_bufnr)
       actions.select_default:replace(function()
-        local emoji = action_state.get_selected_entry()
+        local glyph = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
-        action(emoji)
+        action(glyph)
       end)
       return true
     end,
@@ -61,5 +62,5 @@ return require("telescope").register_extension({
   setup = function(config)
     action = config.action or action
   end,
-  exports = { emoji = search },
+  exports = { glyph = search },
 })

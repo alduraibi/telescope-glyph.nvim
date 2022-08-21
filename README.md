@@ -1,7 +1,7 @@
-# telescope-emoji.nvim
+# telescope-glyph.nvim
 
 An extension for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-that allows you to search emojis😃
+that allows you to search font glyphs
 
 <!-- markdownlint-disable-next-line -->
 <img width="800" alt="screenshot" src="https://user-images.githubusercontent.com/47070852/124722843-07b16f00-df3d-11eb-891c-9a316e8d577c.gif">
@@ -11,13 +11,13 @@ that allows you to search emojis😃
 Install telescope and this plugin then
 
 ```lua
-require("telescope").load_extension("emoji")
+require("telescope").load_extension("glyph")
 ```
 
 ## Usage
 
 ```
-:Telescope emoji
+:Telescope glyph
 ```
 
 ## Configuraion
@@ -31,14 +31,14 @@ telescope.setup {
   extensions = {
     emoji = {
       action = function(emoji)
-        -- argument emoji is a table.
-        -- {name="", value="", cagegory="", description=""}
+        -- argument glyph is a table.
+        -- {name="", value="", category=""}
 
-        vim.fn.setreg("*", emoji.value)
-        print([[Press p or "*p to paste this emoji]] .. emoji.value)
+        vim.fn.setreg("*", glyph.value)
+        print([[Press p or "*p to paste this glyph]] .. glyph.value)
 
-        -- insert emoji when picked
-        -- vim.api.nvim_put({ emoji.value }, 'c', false, true)
+        -- insert glyph when picked
+        -- vim.api.nvim_put({ glyph.value }, 'c', false, true)
       end,
     }
   },
