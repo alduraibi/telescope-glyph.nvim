@@ -44,3 +44,8 @@ telescope.setup {
   },
 }
 ```
+
+## Credit
+This project is a direct fork of [telescope-emoji.nvim](https://github.com/xiyaowong/telescope-emoji.nvim) to provide font glyphs.
+
+Used the nerd fonts and unicode cheatsheets from [cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) as the sources for the glyphs
