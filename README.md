@@ -6,12 +6,21 @@ that allows you to search font glyphs
 <!-- markdownlint-disable-next-line -->
 <img width="800" alt="screenshot" src="https://user-images.githubusercontent.com/47070852/124722843-07b16f00-df3d-11eb-891c-9a316e8d577c.gif">
 
+*Same as above but shows glyphs instead of emojis*
+
 ## Get Started
 
-Install telescope and this plugin then
+Requirements: 
+- A patched Nerd Font
+- Telescope
+
+Install and load this plugin:
 
 ```lua
-require("telescope").load_extension("glyph")
+use { 'ghassan0/telescope-glyph.nvim' }
+
+
+require('telescope').load_extension('glyph')
 ```
 
 ## Usage
@@ -29,8 +38,8 @@ by default
 ```lua
 telescope.setup {
   extensions = {
-    emoji = {
-      action = function(emoji)
+    glyph = {
+      action = function(glyph)
         -- argument glyph is a table.
         -- {name="", value="", category="", description=""}
 
@@ -40,12 +49,12 @@ telescope.setup {
         -- insert glyph when picked
         -- vim.api.nvim_put({ glyph.value }, 'c', false, true)
       end,
-    }
+    },
   },
 }
 ```
 
 ## Credit
-This project is a direct fork of [telescope-emoji.nvim](https://github.com/xiyaowong/telescope-emoji.nvim) to provide font glyphs.
+This project is a direct fork of [telescope-emoji.nvim](https://github.com/xiyaowong/telescope-emoji.nvim) to provide font glyphs instead of emojis.
 
-Used the nerd fonts and unicode cheatsheets from [cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) as the sources for the glyphs
+The nerd fonts and unicode cheatsheets from [cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim) were used to create the sources for the glyphs.
