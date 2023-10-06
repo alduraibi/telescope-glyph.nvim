@@ -7640,12 +7640,6 @@ local glyphs = {
     description = "",
   },
   {
-    name = "allo",
-    value = "ﴀ",
-    category = "Material Design",
-    description = "",
-  },
-  {
     name = "alpha",
     value = "󰀫",
     category = "Material Design",
